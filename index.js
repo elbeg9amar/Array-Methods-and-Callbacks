@@ -9,10 +9,37 @@ console.log('its working');
 (a) Home Team name for 2014 world cup final
 (b) Away Team name for 2014 world cup final
 (c) Home Team goals for 2014 world cup final
+
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
+const filter2014 = fifaData.filter(function(item){
+return item.Year === 2014
+});
+const homeName = filter2014.map(function(index){
+return index["Home Team Name"];
+});
+console.log(homeName)
 
+const awayName = filter2014.map(function(index){
+ return index["Away Team Name"]
+});
+console.log(awayName)
 
+const homeGoals = filter2014.reduce(function(accumlator,index){
+ return  accumlator += index["Home Team Goals"]
+},0);
+console.log(homeGoals)
+
+const awayGoals = filter2014.reduce(function(total, index){
+ return total + index["Away Team Goals"]
+},0);
+console.log(awayGoals);
+
+const winfinal = filter2014.filter(function(index){
+   return index.Stage === "Final"
+});
+
+console.log(winfinal)
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 function getFinals(/* code here */) {
